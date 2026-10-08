@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Phone, Navigation } from 'lucide-react';
 import { storeConfig } from '../data/storeConfig';
+import { AvaniCircularEmblem } from './AvaniCircularEmblem';
 
 interface NavbarProps {
   onVisitClick: () => void;
@@ -32,11 +33,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onVisitClick }) => {
     };
   }, [mobileMenuOpen]);
 
-  // Exact mobile-first navigation links as specified in Section 31.2
+  // Mobile-first navigation links
   const navLinks = [
     { label: 'HOME', href: '#hero' },
     { label: 'COLLECTIONS', href: '#collections' },
-    { label: 'ABOUT', href: '#editorial' },
+    { label: 'OUR STORY', href: '#story' },
     { label: 'GALLERY', href: '#gallery' },
     { label: 'STORE', href: '#location' },
     { label: 'CONTACT', href: '#location' },
@@ -55,24 +56,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onVisitClick }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           isScrolled
-            ? 'py-3.5 bg-[#121212]/90 backdrop-blur-md border-b border-white/10 shadow-2xl text-white'
-            : 'py-5 sm:py-6 bg-gradient-to-b from-black/85 via-black/35 to-transparent text-white'
+            ? 'py-3 bg-[#121212]/92 backdrop-blur-md border-b border-white/10 shadow-2xl text-white'
+            : 'py-4 sm:py-5 bg-gradient-to-b from-black/90 via-black/40 to-transparent text-white'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
           
-          {/* Left Brand Identity */}
+          {/* Left Brand Identity with Official Logo Emblem */}
           <a
             href="#hero"
-            className="group flex items-baseline gap-2.5 sm:gap-3 tracking-widest cursor-pointer py-1"
+            className="group flex items-center gap-3 sm:gap-3.5 tracking-widest cursor-pointer py-1"
             aria-label="AVANI Home"
           >
-            <span className="font-serif text-2xl sm:text-3xl font-normal tracking-[0.25em] sm:tracking-[0.3em] text-white group-hover:text-[#DFCA9E] transition-colors">
-              AVANI
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.35em] font-mono text-[#B59A6A] hidden sm:inline">
-              WOMEN'S FASHION
-            </span>
+            {/* Unified Circular Brand Emblem */}
+            <AvaniCircularEmblem
+              size="navbar"
+              interactive={false}
+              showSpinningRing={false}
+              animateOnLoad={false}
+            />
+            
+            <div className="flex flex-col">
+              <span className="font-serif text-xl sm:text-2xl font-normal tracking-[0.25em] text-white group-hover:text-[#DFCA9E] transition-colors leading-none">
+                AVANI
+              </span>
+              <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] font-mono text-[#DFCA9E]/80 mt-1">
+                WOMEN'S FASHION
+              </span>
+            </div>
           </a>
 
           {/* Desktop Floating Menu Links */}
@@ -193,13 +204,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onVisitClick }) => {
           >
             {/* Top Bar with Brand & Close Button */}
             <div className="flex items-center justify-between pb-6 border-b border-white/10">
-              <div>
-                <span className="font-serif text-3xl font-normal tracking-[0.25em] text-white">
-                  AVANI
-                </span>
-                <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#DFCA9E] mt-1">
-                  Women's Fashion Destination
-                </p>
+              <div className="flex items-center gap-3.5">
+                <AvaniCircularEmblem
+                  size="sm"
+                  interactive={false}
+                  showSpinningRing={false}
+                  animateOnLoad={false}
+                />
+                <div>
+                  <span className="font-serif text-2xl sm:text-3xl font-normal tracking-[0.25em] text-white">
+                    AVANI
+                  </span>
+                  <p className="text-[9px] font-mono uppercase tracking-[0.3em] text-[#DFCA9E] mt-0.5">
+                    Women's Fashion Destination
+                  </p>
+                </div>
               </div>
 
               <button

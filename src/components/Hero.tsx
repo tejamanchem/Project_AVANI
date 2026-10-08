@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight, ArrowRight, Sparkles } from 'lucide-react';
 import { images } from '../data/images';
+import { brandConfig } from '../config/brandConfig';
 
 interface HeroProps {
   onExploreClick: () => void;
@@ -83,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onVisitClick }) => {
             <motion.div
               initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
               className="mb-3 sm:mb-4"
             >
               <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-mono text-[#DFCA9E] block">
@@ -248,8 +249,13 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onVisitClick }) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="text-[9px] font-mono uppercase tracking-[0.3em] bg-black/70 backdrop-blur-md px-2 py-0.5 border border-white/10 text-[#DFCA9E] rounded-full">
+                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 bg-black/80 backdrop-blur-md pl-1 pr-2.5 py-0.5 border border-white/15 rounded-full">
+                    <img
+                      src={brandConfig.logo}
+                      alt="AVANI Official Logo"
+                      className="w-4 h-4 object-contain rounded-full flex-shrink-0"
+                    />
+                    <span className="text-[9px] font-mono uppercase tracking-[0.25em] text-[#DFCA9E]">
                       AVANI
                     </span>
                   </div>

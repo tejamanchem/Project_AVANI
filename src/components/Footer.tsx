@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 import { storeConfig } from '../data/storeConfig';
+import { AvaniCircularEmblem } from './AvaniCircularEmblem';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -10,7 +11,7 @@ export const Footer: React.FC = () => {
   const links = [
     { label: 'HOME', href: '#hero' },
     { label: 'COLLECTIONS', href: '#collections' },
-    { label: 'ABOUT', href: '#editorial' },
+    { label: 'OUR STORY', href: '#story' },
     { label: 'GALLERY', href: '#gallery' },
     { label: 'STORE', href: '#location' },
     { label: 'CONTACT', href: '#location' },
@@ -23,14 +24,24 @@ export const Footer: React.FC = () => {
         {/* Main Footer Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 border-b border-white/10">
           
-          {/* Brand Mark */}
+          {/* Brand Mark with Official Unified Circular Emblem */}
           <div className="lg:col-span-5">
-            <span className="font-serif text-4xl sm:text-5xl font-light tracking-[0.3em] text-white">
-              AVANI
-            </span>
-            <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-[#DFCA9E] mt-2">
-              WOMEN'S FASHION DESTINATION
-            </p>
+            <div className="flex items-center gap-4 mb-4">
+              <AvaniCircularEmblem
+                size="md"
+                interactive={true}
+                showSpinningRing={true}
+                animateOnLoad={false}
+              />
+              <div>
+                <span className="font-serif text-3xl sm:text-4xl font-light tracking-[0.25em] text-white">
+                  AVANI
+                </span>
+                <p className="text-[9px] font-mono uppercase tracking-[0.35em] text-[#DFCA9E] mt-1">
+                  WOMEN'S FASHION DESTINATION
+                </p>
+              </div>
+            </div>
             <p className="text-sm text-white/60 font-light leading-relaxed mt-6 max-w-sm">
               An evolving curation of royal silks, contemporary silhouettes, celebratory bridal drapes, and nurturing maternity comfort.
             </p>
